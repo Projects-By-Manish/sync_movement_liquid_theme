@@ -1,10 +1,13 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {
-    "hero": { "type": "hero" },
-    "info-split": { "type": "info-split" },
-    "collections-grid": { "type": "collections-grid" },
-    "features": { "type": "features" },
-    "newsletter": { "type": "newsletter" }
-  },
-  "order": ["hero", "info-split", "collections-grid", "features", "newsletter"]
+  "sections": {},
+  "order": []
 }
