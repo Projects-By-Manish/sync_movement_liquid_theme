@@ -8,6 +8,33 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "info-split": {
+      "type": "info-split",
+      "settings": {}
+    },
+    "collections-grid": {
+      "type": "collections-grid",
+      "settings": {}
+    },
+    "features": {
+      "type": "features",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "info-split",
+    "collections-grid",
+    "features",
+    "newsletter"
+  ]
 }
