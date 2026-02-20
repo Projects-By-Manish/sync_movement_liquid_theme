@@ -1,0 +1,28 @@
+<div class="features">
+  <div class="container feature-container">
+    {% for block in section.blocks limit: 4 %}
+      <div class="feature-box">
+        <span class="feature-icon">{{ block.settings.icon }}</span>
+        <span class="feature-title">{{ block.settings.title }}</span>
+        <span class="feature-desc">{{ block.settings.desc }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Features Bar",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (Text/Emoji)" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "desc", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [{"name": "Features Bar"}]
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+<section class="container" style="padding:60px 20px;">
+  <h1>Your Cart</h1>
+  {% if cart.item_count == 0 %}
+    <p>Your cart is empty. <a href="{{ routes.root_url }}">Continue shopping</a></p>
+  {% else %}
+    {% form 'cart' %}
+      {% for item in cart.items %}
+        <div style="display:flex; gap:20px; align-items:center; padding:16px 0; border-bottom:1px solid #eee;">
+          {% if item.image %}
+            <img src="{{ item.image | img_url: '100x' }}" style="border-radius:8px;" alt="{{ item.title }}">
+          {% endif %}
+          <div style="flex:1;">
+            <div style="font-weight:600;">{{ item.product.title }}</div>
+            <div>{{ item.variant.title }}</div>
+            <div>{{ item.price | money }}</div>
+          </div>
+          <input type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0" style="width:60px; padding:6px; border-radius:6px; border:1px solid #ccc;" />
+        </div>
+      {% endfor %}
+      <div style="margin-top:24px; text-align:right;">
+        <p style="font-size:1.2rem; font-weight:600;">Total: {{ cart.total_price | money }}</p>
+        <button type="submit" name="update" class="btn" style="margin-right:10px;">Update Cart</button>
+        <button type="submit" name="checkout" class="btn">Checkout</button>
+      </div>
+    {% endform %}
+  {% endif %}
+</section>
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

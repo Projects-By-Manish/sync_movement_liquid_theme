@@ -1,0 +1,35 @@
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Our Mission</h3>
+        <p>{{ section.settings.mission_text }}</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          {% for link in linklists[section.settings.footer_menu].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <p class="footer-email">{{ section.settings.support_email }}</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; {{ 'now' | date: "%Y" }}, {{ shop.name }}. Powered by Shopify.
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "textarea", "id": "mission_text", "default": "Redefining period care..." },
+    { "type": "link_list", "id": "footer_menu", "label": "Footer Menu" },
+    { "type": "text", "id": "support_email", "default": "hello@syncmovement.com" }
+  ]
+}
+{% endschema %}

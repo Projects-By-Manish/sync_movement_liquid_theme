@@ -1,0 +1,17 @@
+<section class="newsletter-section reveal">
+  <div class="container">
+    <h2>{{ section.settings.heading }}</h2>
+    {% form 'contact', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="email" name="contact[email]" class="newsletter-input" placeholder="Your email address" required />
+      <button type="submit" class="btn">Join Now</button>
+    {% endform %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [ { "type": "text", "id": "heading", "default": "Join the Cycle Circle" } ],
+  "presets": [{"name": "Newsletter"}]
+}
+{% endschema %}

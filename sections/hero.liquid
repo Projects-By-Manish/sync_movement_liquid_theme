@@ -1,0 +1,37 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="sub-label">{{ section.settings.sub_label }}</div>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.text }}</p><br />
+      <a href="{{ section.settings.btn_link }}" class="btn">{{ section.settings.btn_label }}</a>
+    </div>
+
+    <div class="hero-products">
+      {% assign hero_col = collections[section.settings.collection] %}
+      {% for product in hero_col.products limit: 4 %}
+        <div class="product-card">
+          <div class="product-image">
+             {% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">{% else %}<span>{{ product.title }}</span>{% endif %}
+          </div>
+          <div class="product-title">{{ product.title }}</div>
+          <div class="product-price">{{ product.price | money }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "sub_label", "default": "PHASE-SYNCED CARE", "label": "Sub Label" },
+    { "type": "text", "id": "heading", "default": "Empower Your Every Phase", "label": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "btn_label", "default": "Shop the Collection", "label": "Button Label" },
+    { "type": "url", "id": "btn_link", "label": "Button Link" },
+    { "type": "collection", "id": "collection", "label": "Collection for Cards" }
+  ],
+  "presets": [{"name": "Hero"}]
+}
+{% endschema %}

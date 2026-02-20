@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "hero": { "type": "hero" },
+    "info-split": { "type": "info-split" },
+    "collections-grid": { "type": "collections-grid" },
+    "features": { "type": "features" },
+    "newsletter": { "type": "newsletter" }
+  },
+  "order": ["hero", "info-split", "collections-grid", "features", "newsletter"]
+}

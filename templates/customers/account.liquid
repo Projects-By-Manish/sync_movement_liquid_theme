@@ -1,0 +1,6 @@
+{% layout 'theme' %}
+<div class="container" style="padding:60px 20px;">
+  <h2>My Account</h2>
+  <p>Welcome, {{ customer.first_name }}!</p>
+  <a href="{{ routes.account_logout_url }}" class="btn">Log Out</a>
+</div>

@@ -1,0 +1,11 @@
+{% layout 'theme' %}
+<div class="container" style="padding: 60px 20px; text-align:center;">
+  <h2>Login</h2>
+  {% form 'customer_login' %}
+    {{ form.errors | default_errors }}
+    <p><input type="email" name="customer[email]" placeholder="Email" required /></p>
+    <p><input type="password" name="customer[password]" placeholder="Password" required /></p>
+    <button type="submit" class="btn">Sign In</button>
+  {% endform %}
+  <p><a href="{{ routes.account_register_url }}">Create Account</a></p>
+</div>

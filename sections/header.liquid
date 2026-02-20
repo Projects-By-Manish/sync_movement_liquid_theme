@@ -1,0 +1,41 @@
+<header>
+  <div class="container">
+    <div class="floating-nav">
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+
+      <nav class="nav-container">
+        <ul class="nav-links">
+          {% for link in linklists[section.settings.menu].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="logo"><a href="{{ routes.root_url }}">{{ shop.name }}</a></div>
+
+      <div class="header-icons">
+        <a href="{{ routes.search_url }}" class="icon-link" aria-label="Search">
+          <img src="{{ 'search.png' | asset_url }}" alt="Search" class="nav-icon-img" />
+        </a>
+        <span class="separator"></span>
+        <a href="{{ routes.account_url }}" class="icon-link" aria-label="Profile">
+          <img src="{{ 'profile.png' | asset_url }}" alt="Profile" class="nav-icon-img" />
+        </a>
+        <span class="separator"></span>
+        <a href="{{ routes.cart_url }}" class="icon-link cart-icon" aria-label="Cart">
+          <img src="{{ 'cart.png' | asset_url }}" alt="Cart" class="nav-icon-img" />
+          <span class="cart-count">{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}
